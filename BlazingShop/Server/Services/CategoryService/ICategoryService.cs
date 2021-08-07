@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazingShop.Client.Services.CategoryService
+namespace BlazingShop.Server.Services.CategoryService
 {
     public interface ICategoryService
     {
-        List<Category> Categories { get; set; }
-        Task LoadCategories();
+        Task <List<Category>> GetCategory();
     }
 }
