@@ -8,7 +8,9 @@ namespace BlazingShop.Client.Services.ProductService
 {
     public interface IProductService
     {
+        event Action OnChange;
         List<Product> Products { get; set; }
-        Task LoadProducts();
+        Task LoadProducts(string CategoryUri = null);
+        Task <Product> GetProductById(int id);
     }
 }

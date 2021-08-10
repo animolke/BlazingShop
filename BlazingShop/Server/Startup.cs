@@ -1,9 +1,11 @@
+using BlazingShop.Server.Data;
 using BlazingShop.Server.Services.CategoryService;
 using BlazingShop.Server.Services.ProductService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +31,9 @@ namespace BlazingShop.Server
             services.AddRazorPages();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddDbContext<DataContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("Default"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -25,5 +25,17 @@ namespace BlazingShop.Server.Controllers
         {
             return Ok(await _productService.GetProducts());
         }
+
+        [HttpGet("Category/{CategoryUri}")]
+        public async Task<ActionResult<Product>> GetProductsByCategory(string CategoryUri)
+        {
+            return Ok(await _productService.GetProductsByCategory(CategoryUri));
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Product>> GetProductById(int id) 
+        {
+            return Ok(await _productService.GetProductById(id));
+        }
     }
 }

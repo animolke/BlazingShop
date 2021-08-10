@@ -9,5 +9,6 @@ namespace BlazingShop.Server.Services.CategoryService
     public interface ICategoryService
     {
         Task <List<Category>> GetCategory();
+        Task<Category> GetCategoryByUri(string CategoryUri);
     }
 }
