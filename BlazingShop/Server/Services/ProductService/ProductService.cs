@@ -33,7 +33,7 @@ namespace BlazingShop.Server.Services.ProductService
 
         public async Task<Product> GetProductById(int id)
         {
-            return await _dataContext.Products.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            return await _dataContext.Products.Include(p => p.Editions).FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
     }
 }
